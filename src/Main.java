@@ -1,6 +1,8 @@
 import creational.Patterns;
 import structural.*;
 import behavioral.*;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -105,5 +107,54 @@ public class Main {
         computer.accept(new VisitorApp.ComputerDisplayVisitor());
 
         System.out.println("\nВсі 10 поведінкових патернів успішно відпрацювали!");
+
+
+        System.out.println("\n=== ДЕМОНСТРАЦІЯ ЛЯМБДА ВИРАЗІВ ТА STREAM API (Лаба 5) ===\n");
+
+        // Підготовка вхідних тестових даних
+        List<Integer> intList = Arrays.asList(4, 7, 1, 8, 2, 9, 8, 5, 6);
+        List<Double> doubleList = Arrays.asList(2.5, 4.0, 1.5, 8.0);
+        List<String> stringList = Arrays.asList("Яблуко", "Банан", "Груша", "", "Апельсин", "ківі");
+
+        // 1. Фільтрація непарних чисел
+        System.out.println("1. Непарні числа зі списку: " + lambda.LambdaApp.filterOddNumbers(intList));
+
+        // 2. Середнє значення дійсних чисел
+        System.out.println("2. Середнє значення дійсних чисел: " + lambda.LambdaApp.findAverage(doubleList));
+
+        // 3. Сортування рядків в алфавітному порядку
+        System.out.println("3. Сортування за алфавітом: " + lambda.LambdaApp.sortAlphabetically(Arrays.asList("Черешня", "Ананас", "Слива")));
+
+        // 4. Сума всіх парних чисел
+        System.out.println("4. Сума всіх парних чисел списку: " + lambda.LambdaApp.sumOfEvenNumbers(intList));
+
+        // 5. Обчислення факторіалу
+        System.out.println("5. Факторіал числа 5: " + lambda.LambdaApp.calculateFactorial(5));
+
+        // 6. Множення та підсумовування елементів
+        System.out.println("6. Результати дій для (1, 2, 3, 4): " + lambda.LambdaApp.multiplyAndSum(Arrays.asList(1, 2, 3, 4)));
+
+        // 7. Розрахунок квадрату кожного числа
+        System.out.println("7. Квадрати чисел списку: " + lambda.LambdaApp.squareNumbers(Arrays.asList(1, 2, 3, 5)));
+
+        // 8. Сортування рядків за їх довжиною
+        System.out.println("8. Сортування за довжиною: " + lambda.LambdaApp.sortByLength(Arrays.asList("ДовгийРядок", "Кіт", "Привіт")));
+
+        // 9. Підрахунок кількості слів у реченні
+        System.out.println("9. Кількість слів у реченні: " + lambda.LambdaApp.countWords("Лямбда вирази це дуже зручно"));
+
+        // 10. Пошук першого непорожнього рядка
+        System.out.println("10. Перший непорожній рядок: " + lambda.LambdaApp.findFirstNonEmpty(stringList).orElse("Не знайдено"));
+
+        // 11. Перевірка, чи всі рядки починаються з великої літери
+        System.out.println("11. Чи всі починаються з великої літери: " + lambda.LambdaApp.checkAllCapitalized(Arrays.asList("Київ", "Львів", "Одеса")));
+
+        // 12. Пошук другого за величиною числа
+        System.out.println("12. Друге за величиною число: " + lambda.LambdaApp.findSecondLargest(intList).orElse(-1));
+
+        // 13. Пошук найбільшого парного числа
+        System.out.println("13. Найбільше парне число: " + lambda.LambdaApp.findLargestEven(intList).orElse(-1));
+
+        System.out.println("\nВсі завдання Лабораторної роботи №5 успішно виконано!");
     }
 }
