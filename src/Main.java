@@ -1,13 +1,35 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import creational.Patterns;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("=== ДЕМОНСТРАЦІЯ ПОРОДЖУВАЛЬНИХ ПАТЕРНІВ (Кафедральний стандарт) ===\n");
+
+        // 1. Singleton
+        Patterns.Singleton.getInstance().show();
+
+        // 2. Factory (Проста фабрика)
+        Patterns.ISimpleProduct prod = Patterns.SimpleFactory.createProduct("X");
+        prod.use();
+
+        // 3. Factory Method
+        Patterns.Creator creator = new Patterns.ConcreteCreatorA();
+        creator.action();
+
+        // 4. Abstract Factory
+        Patterns.IFurnitureFactory factory = new Patterns.ModernFurnitureFactory();
+        System.out.println("[Abstract Factory] Набір: " + factory.createChair().sitOn() + " та " + factory.createSofa().relaxOn());
+
+        // 5. Builder
+        Patterns.MeatPizzaBuilder builder = new Patterns.MeatPizzaBuilder();
+        builder.setSize(); builder.addCheese(); builder.addBacon();
+        Patterns.Pizza pizza = builder.getPizza();
+        System.out.println("[Builder] Піца: Розмір=" + pizza.size + ", Сир=" + pizza.cheese + ", Бекон=" + pizza.bacon);
+
+        // 6. Prototype
+        Patterns.Sheep original = new Patterns.Sheep("Доллі");
+        Patterns.Sheep clone = (Patterns.Sheep) original.clonePrototype();
+        System.out.println("[Prototype] Оригінал: " + original.name + ", Клон: " + clone.name);
+
+        System.out.println("\nВсі 6 патернів за методичкою успішно відпрацювали!");
     }
 }
